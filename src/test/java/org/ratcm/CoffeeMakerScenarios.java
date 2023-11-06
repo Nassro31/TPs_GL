@@ -97,9 +97,8 @@ public class CoffeeMakerScenarios {
 
 	public static void main(String[] args) {
 		CoffeeMakerScenarios testScenario = new CoffeeMakerScenarios();
-		
 		// Run once at a time (in order to isolate pb)
-		testScenario.testMakeCoffee();
+//		testScenario.testMakeCoffee();
 //		testScenario.testMakeCoffeeWithoutEnoughMoney();
 //		testScenario.testMakeMochaWithNoSufficientChocolate();
 //		testScenario.testMakingManyCoffeesEmptiesStock();

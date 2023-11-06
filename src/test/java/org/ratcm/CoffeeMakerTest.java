@@ -21,7 +21,7 @@ public class CoffeeMakerTest {
 	private Recipe r3;
 	private Recipe r4;
 
-	@BeforeEach
+	@BeforeEach	
 	public void setUp() throws Exception {
 		cm = new CoffeeMaker();
 		

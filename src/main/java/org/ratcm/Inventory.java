@@ -226,4 +226,9 @@ public class Inventory {
 		buf.append("\n");
 		return buf.toString();
 	}
+	
+	public static void main(String[] args) {
+		Inventory inventaire = new Inventory();
+		System.out.println(inventaire.toString());
+	}
 }

@@ -1,5 +1,7 @@
 package test.java.org.ratcm;
 
+import java.util.Iterator;
+
 import main.java.org.ratcm.CoffeeMaker;
 import main.java.org.ratcm.Recipe;
 
@@ -90,9 +92,43 @@ public class CoffeeMakerScenarios {
 		assertEquals(50, cm.makeCoffee(0, 50));
 		System.out.println("testMakingManyCoffeesEmptiesStock passed with success");
 	}
-
+	private void testCheckInventoryBeforeUse() {
+		assertEquals(cm.checkInventory(),
+				"Coffee: 15\r"
+				+ "Milk: 15\r"
+				+ "Sugar: 15\r"
+				+ "Chocolate: 15");
+		System.out.println("testCheckInventoryBeforeUse passed with success");
+		}
+	private void testCheckInventoryAfterThreeCoffees() {
+		for(int i=0;i<3;i++) {
+			cm.makeCoffee(0, 50);
+		}
+		cm.checkInventory().equals("Coffee: 6\r"
+				+ "Milk: 12\r"
+				+ "Sugar: 12\r"
+				+ "Chocolate: 15");
+		System.out.println("testCheckInventoryAfterThreeCoffees passed with success");
+	}
+	private void testMakingManyCoffeesAfterRefillIsStillPossible(){
+		for(int i=0;i<5;i++) {
+			cm.makeCoffee(0, 50);
+		}
+		System.out.println(cm.checkInventory());
+//		cm.addInventory("15", "15","15", "15");
+//		assert(cm.checkInventory().equals("Coffee: 15\r"
+//				+ "Milk: 25\r"
+//				+ "Sugar: 25\r"
+//				+ "Chocolate: 30"));
+//		System.out.println("testMakingManyCoffeesAfterRefillIsStillPossible passed with success");
+	}
+	
+	
 	private void assertEquals(int expectedValue, int testedValue) {
 		assert (expectedValue == testedValue);
+	}
+	private void assertEquals(String expectedValue, String testedValue) {
+		assert (expectedValue.equals(testedValue));
 	}
 
 	public static void main(String[] args) {
@@ -102,6 +138,9 @@ public class CoffeeMakerScenarios {
 //		testScenario.testMakeCoffeeWithoutEnoughMoney();
 //		testScenario.testMakeMochaWithNoSufficientChocolate();
 //		testScenario.testMakingManyCoffeesEmptiesStock();
+		testScenario.testCheckInventoryBeforeUse();
+//		testScenario.testCheckInventoryAfterThreeCoffees();
+//		testScenario.testMakingManyCoffeesAfterRefillIsStillPossible();
 	}
 
 }

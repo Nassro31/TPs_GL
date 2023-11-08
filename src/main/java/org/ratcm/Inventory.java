@@ -227,6 +227,8 @@ public class Inventory {
 		return buf.toString();
 	}
 	
+	
+	
 	public static void main(String[] args) {
 		Inventory inventaire = new Inventory();
 		System.out.println(inventaire.toString());
